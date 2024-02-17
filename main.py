@@ -25,5 +25,11 @@ def do_image_mars():
         return design_file.read()
 
 
+@app.route('/astronaut_selection')
+def form_search_astronaut():
+    with open('astronaut_cosmos_form.html', 'r', encoding='utf-8') as design_file:
+        return design_file.read()
+
+
 if __name__ == '__main__':
     app.run(port=8080, host='127.0.0.1', debug=True)
