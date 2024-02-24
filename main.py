@@ -9,19 +9,20 @@ def main():
     return 'Миссия Колонизация Марс'
 
 
-@app.route('/promotion_image')
+@app.route('/astronaut_selection')
 def do_image_mars():
     return f'''<html lang="en">
 <head>
     <meta charset="UTF-8">
-    <title>Колонизация</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Отбор астронавтов</title>
     <link crossorigin="anonymous" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
           integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" rel="stylesheet">
     <link rel="stylesheet" href="static/css/style.css">
 </head>
 <body>
-<h1>Жди нас, Марс!</h1>
-<img src="{url_for('static', filename='img/Mars.png')}" alt="Фото Марса">
+<h1>Анкета претендентов</h1>
+<h2>на участие в миссии</h2>
 <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
         integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
         crossorigin="anonymous"></script>
@@ -31,21 +32,100 @@ def do_image_mars():
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
         integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
         crossorigin="anonymous"></script>
-<div class="alert alert-dark" role="alert">
-  Человечество вырастает из детства.
+<form class="cosmos">
+    <div class="form-group">
+        <label for="exampleInputEmail1"></label>
+        <input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp"
+               placeholder="Введите фамилию">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1"></label>
+        <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Введите имя">
+    </div>
+    <div class="form-group">
+        <label for="exampleInputPassword1"></label>
+        <input type="password" class="form-control" id="exampleInputPassword2" placeholder="Введите адрес почты">
+    </div>
+    </div>
+    <div class="col-auto my-1">
+        <label class="mr-sm-2" for="inlineFormCustomSelect">Какое у вас образование?</label>
+        <select class="custom-select mr-sm-2" id="inlineFormCustomSelect">
+            <option selected>Начальное</option>
+            <option value="common">Общее</option>
+            <option value="professional">Профессиональное</option>
+            <option value="additional">Дополнительное</option>
+        </select>
+    </div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+    <label class="form-check-label" for="defaultCheck1">
+        инженер-исследователь
+    </label>
 </div>
-<div class="alert alert-success" role="alert">
-  Человечеству мала одна планета.
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+    <label class="form-check-label" for="defaultCheck1">
+        пилот
+    </label>
 </div>
-<div class="alert alert-secondary" role="alert">
-  Мы сделаем обитаемыми безжизненные пока планеты.
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+    <label class="form-check-label" for="defaultCheck1">
+        строитель
+    </label>
 </div>
-<div class="alert alert-warning" role="alert">
-  И начнем с Марса!
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+    <label class="form-check-label" for="defaultCheck1">
+        экзобиолог
+    </label>
 </div>
-<div class="alert alert-danger" role="alert">
- Присоединяйся!
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck5">
+    <label class="form-check-label" for="defaultCheck1">
+        врач
+    </label>
 </div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck6">
+    <label class="form-check-label" for="defaultCheck1">
+        инженер по терраформированию
+    </label>
+</div>
+<br>
+<div class="form-check">
+    <label class="mr-sm-2" for="inlineFormCustomSelect">Укажите пол</label>
+    <br>
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios1" value="option1" checked>
+    <label class="form-check-label" for="exampleRadios1">
+        Мужской
+    </label>
+</div>
+<div class="form-check">
+    <input class="form-check-input" type="radio" name="exampleRadios" id="exampleRadios2" value="option2">
+    <label class="form-check-label" for="exampleRadios2">
+        Женский
+    </label>
+</div>
+<div class="form-group">
+    <label for="about">Почему Вы хотите принять участие в миссии?</label>
+</div>
+<div>
+    <textarea class="form-con" id="about" rows="3" name="about"></textarea>
+</div>
+    <div class="form-group">
+    <label for="exampleFormControlFile1">Приложите фотографию</label>
+    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+  </div>
+<div class="form-check">
+    <input class="form-check-input" type="checkbox" value="" id="defaultCheck7">
+    <label class="form-check-label" for="defaultCheck1">
+        Готовы остаться на Марсе?
+    </label>
+</div>
+<br>
+<button type="submit" class="btn btn-primary">Отправить</button>
+</form>
 </body>
 </html>'''
 
